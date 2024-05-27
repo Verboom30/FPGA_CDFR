@@ -31,6 +31,8 @@ use ieee.std_logic_1164.all;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
+
+
 entity top_fpga is
   port( 
         CLK100M : in std_logic;
@@ -40,6 +42,7 @@ entity top_fpga is
 end top_fpga;
 
 architecture Behavioral of top_fpga is
+
   
 begin  
 

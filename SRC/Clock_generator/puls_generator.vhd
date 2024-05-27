@@ -13,7 +13,8 @@ entity puls_generator is
 end puls_generator;
 
 architecture rtl of puls_generator is
-	signal counter : unsigned (15 downto 0);
+    signal counter : unsigned (31 downto 0);
+    constant FREQ_CLK_MAIN : unsigned(31 downto 0) := to_unsigned(100_000_000,32);
 begin
 
   puls_generator: process(RST, CLK)
@@ -22,7 +23,7 @@ begin
         PULS    <= '0';
         counter <= (others => '0');
       elsif(rising_edge(CLK))then
-        if(counter = (1/(unsigned(FREQ)+1))*100_000_000)then
+        if(counter = (FREQ_CLK_MAIN/(unsigned(FREQ)+1)))then
           PULS    <= '1';
           counter <= (others => '0');
         else
